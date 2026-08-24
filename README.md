@@ -52,6 +52,7 @@ This website serves as a modern digital platform designed to showcase the salon'
 ---
 
 ## Sitemap
+<img width="722" height="232" alt="sitemap drawio" src="https://github.com/user-attachments/assets/3f94cb4d-5bb5-488c-a08f-86d2c736e8d3" />
 
 ---
 
