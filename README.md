@@ -66,4 +66,35 @@ This website serves as a modern digital platform designed to showcase the salon'
 * Integrated location details, business operating hours, and map (`contact.html`).
 ---
 
-## Reference List
+### Reference List
+* Grace, F. (n.d.) How to create a project timeline: Step-by-step, Atlassian. Available at: <https://www.atlassian.com/work-management/project-management/project-planning/timeline> [Accessed: 24 August 2026].
+* The Independent Institute of Education, 2026. Web Development [WEDE5020]. nt. [online via internal VLE] The Independent Institute of Education. Available at:< https://advtechonline.sharepoint.com/sites/TertiaryStudents/SitePages/Student-Materials.aspx?isSPOFile=1 > [Accessed Date 24 August 2026].
+* Show Salon (2026) Show Online. Available at: https://www.showsalon.co.za/ [Accessed: 24 August 2026].
+* Markin, I. (2025) Defining website goals and objectives: Key steps and examples, Gapsy Studio. Available at: https://gapsystudio.com/blog/defining-website-goals-and-objectives/ [Accessed: 24 August 2026].
+* Google Gemini (2026) *Gemini* (Version Large Language Model) [AI tool]. Available at: https://gemini.google.com [Accessed: 24 August 2026].
+
+## Video References
+
+* Academind (2018) *Visual Studio Code Tutorial for Beginners - Introduction* [Video]. YouTube. Available at: https://www.youtube.com/watch?v=VqCgcpAypFQ [Accessed: 23 August 2026].
+* Adolphe, R. / Visual Studio Code (2026) *Learn Visual Studio Code in 15 minutes: 2026 Official Beginner Tutorial* [Video]. YouTube. Available at: https://www.youtube.com/watch?v=f8_uF_IDV50 [Accessed: 23 August 2026].
+* McFadyean, M. (2022) *VS Code Quick Start* [Video]. YouTube. Available at: https://www.youtube.com/watch?v=LCA3E86g29w [Accessed: 23 August 2026].
+* Mikey No-Code (2026) *Visual Studio Code Tutorial for Beginners 2026: How to Use VS Code* [Video]. YouTube. Available at: https://www.youtube.com/watch?v=bj6QSx22zXs [Accessed: 25 August 2026].
+* Powell, K. (2023) *How to get started with VS Code* [Video]. YouTube. Available at: https://www.youtube.com/watch?v=EUJlVYggR1Y [Accessed: 23 August 2026].
+* Rohowsky, M. (2023) *Using Git & GitHub in VSCode: Stage, Commit, and Push* [Video]. YouTube. Available at: https://www.youtube.com/watch?v=z5jZ9lrSpqk [Accessed: 25 August 2026].
+* TheCoderCoder (2025) *VS Code for Absolute Beginners* [Video]. YouTube. Available at: https://youtu.be/lWEKiak0WVU [Accessed: 23 August 2026].
+
+## Image References
+
+* Bohlouli, B. (2021) *A room filled with furniture and a large window* [Online image], Unsplash. Available at: https://unsplash.com/photos/a-room-filled-with-furniture-and-a-large-window-_C-S7LqxHPw [Accessed: 24 August 2026].
+* Effiong, D. (2023) *A woman with curly hair and a tank top* [Online image], Unsplash. Available at: https://unsplash.com/photos/a-woman-with-curly-hair-and-a-tank-top-4BklQo0MdNU [Accessed: 24 August 2026].
+* Gdula, A. (2022) *A white vase with a white candle and a plant on a white surface* [Online image], Unsplash. Available at: https://unsplash.com/photos/a-white-vase-with-a-white-candle-and-a-plant-on-a-white-surface-2nHFQ1HLxqE [Accessed: 24 August 2026].
+* Grey, A. (2018) *Woman wearing gray top* [Online image], Unsplash. Available at: https://unsplash.com/photos/woman-wearing-gray-top-ORCPTrkkezw [Accessed: 24 August 2026].
+* J, M. (2023) *A woman with blue hair and a black dress* [Online image], Unsplash. Available at: https://unsplash.com/photos/a-woman-with-blue-hair-and-a-black-dress-CwtxeK5IgjI [Accessed: 24 August 2026].
+* Krözjhen, L. (2025) *Cream jar with open lid* [Online image], Unsplash. Available at: https://unsplash.com/photos/cream-jar-with-open-lid-JB8hxCd1Ai8 [Accessed: 24 August 2026].
+* Mass, A. (2024) *A woman getting her hair cut by a hair stylist* [Online image], Unsplash. Available at: https://unsplash.com/photos/a-woman-getting-her-hair-cut-by-a-hair-stylist-e1yymzVmJWE [Accessed: 24 August 2026].
+* Mockup Free (2023) *A tube of black hair product on a white surface* [Online image], Unsplash. Available at: https://unsplash.com/photos/a-tube-of-black-hair-product-on-a-white-surface-_DX721wJ5_o [Accessed: 24 August 2026].
+* Starnes, A. (2021) *Smiling woman in yellow blazer holding tablet* [Online image], Unsplash. Available at: https://unsplash.com/photos/smiling-woman-in-yellow-blazer-holding-tablet-PK_t0Lrh7MM [Accessed: 24 August 2026].
+* Theme Photos (2019) *Woman wearing black top* [Online image], Unsplash. Available at: https://unsplash.com/photos/woman-wearing-black-top-SYXxlEP5KAA [Accessed: 24 August 2026].
+* Thomas, M. (2020) *Smiling girl in white crew neck shirt* [Online image], Unsplash. Available at: https://unsplash.com/photos/smiling-girl-in-white-crew-neck-shirt-52fj00DaOPA [Accessed: 24 August 2026].
+* TYMO Beauty (2024) *A woman holding a hair dryer in her hand* [Online image], Unsplash. Available at: https://unsplash.com/photos/a-woman-holding-a-hair-dryer-in-her-hand-9AIwDXBBdSU [Accessed: 24 August 2026].
+* Winger, A. (2020) *Hairdressing tools held by hands* [Online image], Unsplash. Available at: https://unsplash.com/photos/hairdressing-tools-held-by-hands-KVVjmb3IIL8 [Accessed: 24 August 2026].
