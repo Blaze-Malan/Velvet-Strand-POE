@@ -57,6 +57,13 @@ This website serves as a modern digital platform designed to showcase the salon'
 
 ## Changelog
 
+### Version 1.0.0 (Part 1 Submission)
+* Initialized local project directory structure containing `/css`, `/js`, and `/images` folders.
+* Developed 6 semantic HTML5 web pages (`index.html`, `about.html`, `services.html`, `products.html`, `enquiry.html`, and `contact.html`).
+* Linked full sitewide navigation menu across all header elements for seamless browsing.
+* Embedded service cards, and retail product catalog sections.
+* Implemented interactive consultation web form with hair-type selection dropdowns (`enquiry.html`).
+* Integrated location details, business operating hours, and map (`contact.html`).
 ---
 
 ## Reference List
