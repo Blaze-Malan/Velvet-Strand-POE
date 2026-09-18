@@ -71,17 +71,17 @@ This website serves as a modern digital platform designed to showcase the salon'
 * No changes were made.
 
 ---
-###Proof Of Cross Platform Usability
+### Proof Of Cross Platform Usability
 
-##Mobile
+## Mobile
 <img width="499" height="674" alt="Screenshot 2026-09-18 175104" src="https://github.com/user-attachments/assets/d1f6a47a-fca9-4d94-beed-344383e18aec" />
 <img width="501" height="678" alt="Screenshot 2026-09-18 175120" src="https://github.com/user-attachments/assets/4ba8de57-5f26-4f2c-b425-b30456de3192" />
 
-##Ipad/Tablet
+## Ipad/Tablet
 <img width="1365" height="718" alt="Screenshot 2026-09-18 175209" src="https://github.com/user-attachments/assets/1a713bfe-a2ac-46ee-9762-21a4709360d6" />
 <img width="1365" height="720" alt="Screenshot 2026-09-18 175220" src="https://github.com/user-attachments/assets/dd916b92-37ca-48e9-b102-d3f418fd95eb" />
 
-##Desktop
+## Desktop
 <img width="1365" height="678" alt="Screenshot 2026-09-18 174959" src="https://github.com/user-attachments/assets/8d8ee6b4-5222-4233-829a-58158c460c6e" />
 <img width="1364" height="677" alt="Screenshot 2026-09-18 175010" src="https://github.com/user-attachments/assets/7247ae99-4900-42b6-a2a4-807ef9a4c02a" />
 
