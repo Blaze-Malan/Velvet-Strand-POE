@@ -7,6 +7,12 @@
 
 ---
 
+## GitPage Link
+
+* https://blaze-malan.github.io/Velvet-Strand-POE/
+
+---
+
 ## Project Overview
 **Velvet & Strand** is a premium boutique salon dedicated exclusively to providing specialized hair care and styling for women across all hair textures—ranging from Type 1 (straight) to Type 4 (coily and afro-textured). The salon operates with a strict operational rule: *it provides services exclusively for women and does not offer any services for men*.
 
