@@ -116,6 +116,18 @@ nav a {
     object-fit: cover;
 }
 
+.service-list,
+.product-grid {
+    display: grid;
+    gap: 3.5rem;
+    padding: 1.5rem 0 3rem;
+}
+
+.service-list article > :last-child,
+.product-grid article > :last-child {
+    margin-bottom: 0;
+}
+
 .locations article iframe {
     display: block;
     width: min(100%, 600px);
@@ -283,6 +295,144 @@ textarea:focus {
     outline: none;
     border-color: #8a4b6d;
     box-shadow: 0 0 0 3px rgba(138, 75, 109, 0.25);
+}
+
+/* Styles for elements created by script.js */
+[hidden] {
+    display: none !important;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+}
+
+.toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin: 1.5rem 0;
+}
+
+.toolbar input,
+.toolbar select {
+    padding: 0.5rem 0.75rem;
+    border: 1px solid #c9bcc4;
+    border-radius: 6px;
+    font: inherit;
+    background: #fff;
+}
+
+.toolbar input {
+    flex: 1 1 200px;
+}
+
+.empty-state {
+    text-align: center;
+    font-style: italic;
+}
+
+button.add-btn {
+    border: 0;
+    cursor: pointer;
+    font: inherit;
+}
+
+.select-label {
+    display: inline-block;
+    margin-top: 0.5rem;
+    cursor: pointer;
+}
+
+.service-list article.selected {
+    outline: 2px solid #8a4b6d;
+    outline-offset: 6px;
+    border-radius: 4px;
+}
+
+.panel {
+    position: fixed;
+    right: 1rem;
+    bottom: 1rem;
+    z-index: 20;
+    width: min(320px, calc(100% - 2rem));
+    background: #fff;
+    border: 1px solid #c9bcc4;
+    border-radius: 10px;
+    box-shadow: 0 10px 24px -10px rgba(47, 37, 48, 0.5);
+}
+
+.panel-toggle {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 0;
+    border-radius: 10px;
+    background: #8a4b6d;
+    color: #fff;
+    font: inherit;
+    text-align: left;
+    cursor: pointer;
+}
+
+.panel-count {
+    display: inline-block;
+    min-width: 1.5em;
+    padding: 0 0.4em;
+    border-radius: 999px;
+    background: #fff;
+    color: #8a4b6d;
+    text-align: center;
+}
+
+.panel-count.bump {
+    animation: bump 0.35s ease;
+}
+
+@keyframes bump {
+    50% { transform: scale(1.4); }
+}
+
+.panel-body {
+    padding: 0.75rem 1rem 1rem;
+}
+
+.panel-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.panel-list li {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.5rem;
+    padding: 0.25rem 0;
+}
+
+.panel-actions button {
+    width: 1.8rem;
+    margin-left: 0.25rem;
+    border: 1px solid #c9bcc4;
+    border-radius: 4px;
+    background: #faf7f4;
+    cursor: pointer;
+}
+
+.panel-total {
+    font-weight: bold;
+}
+
+.btn-link {
+    border: 0;
+    background: none;
+    color: #8a4b6d;
+    text-decoration: underline;
+    font: inherit;
+    cursor: pointer;
 }
 
 @media (prefers-reduced-motion: reduce) {
