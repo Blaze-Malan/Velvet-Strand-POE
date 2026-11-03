@@ -505,6 +505,99 @@ body.modal-open {
     border-bottom: 1px solid #e6dce2;
 }
 
+.query-form {
+    display: grid;
+    gap: 1.25rem;
+    max-width: 600px;
+    margin: 1.5rem auto 3rem;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+.field label {
+    font-weight: bold;
+}
+
+.field input,
+.field select,
+.field textarea {
+    padding: 0.6rem 0.75rem;
+    border: 1px solid #c9bcc4;
+    border-radius: 6px;
+    font: inherit;
+    background: #fff;
+}
+
+.field input.invalid,
+.field select.invalid,
+.field textarea.invalid {
+    border-color: #b3261e;
+}
+
+.field .error,
+.error-text {
+    color: #b3261e;
+}
+
+.field .error {
+    min-height: 1.2em;
+    font-size: 0.9rem;
+}
+
+.field .error:not(:empty) {
+    animation: page-in 0.25s ease-out;
+}
+
+.counter {
+    align-self: flex-end;
+    color: #6b5d68;
+}
+
+.success-text {
+    color: #2e7d32;
+}
+
+.form-status {
+    margin: 0;
+    min-height: 1.4em;
+}
+
+.query-form button:disabled {
+    opacity: 0.6;
+    cursor: wait;
+}
+
+fieldset.field {
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+fieldset.field legend {
+    padding: 0;
+    margin-bottom: 0.35rem;
+    font-weight: bold;
+}
+
+.check {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.25rem 0;
+    cursor: pointer;
+}
+
+.prefill-note {
+    display: block;
+    margin-bottom: 0.35rem;
+    color: #8a4b6d;
+}
+
 @media (prefers-reduced-motion: reduce) {
     *,
     *::before,

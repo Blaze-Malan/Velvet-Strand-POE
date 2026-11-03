@@ -270,7 +270,12 @@ function initServices() {
                 el('p', { text: 'Send us an enquiry to turn this quote into a booking.' })
             ],
             actions: [
-                el('a', { class: 'btn', href: 'enquiry.html', text: 'Go to enquiry' }),
+                el('a', {
+                    class: 'btn',
+                    href: 'enquiry.html',
+                    text: 'Go to enquiry',
+                    onclick: () => sessionStorage.setItem('vs-quote', JSON.stringify([...selected.keys()]))
+                }),
                 el('button', { type: 'button', class: 'btn-link', text: 'Keep browsing', onclick: () => modal.dialog.close() })
             ]
         });
@@ -317,8 +322,141 @@ function initServices() {
     render();
 }
 
+// Shared form handling: each `.field[data-name]` wrapper holds its control(s) and an `.error` span.
+// Validates on blur/change, shows errors, then submits asynchronously (simulated, no backend).
+function sendForm(data) {
+    // Stand-in for fetch('/api/...', { method: 'POST', body: JSON.stringify(data) }).
+    return new Promise((resolve) => setTimeout(() => resolve({ ok: true, data }), 1200));
+}
+
+function setupForm(form, rules, { successText, onSuccess = () => {} }) {
+    const status = form.querySelector('.form-status');
+    const submit = form.querySelector('button[type="submit"]');
+    const label = submit.textContent;
+    const wraps = [...form.querySelectorAll('.field[data-name]')];
+    const controls = (w) => [...w.querySelectorAll('input, select, textarea')];
+
+    const valueOf = (w) => {
+        const list = controls(w);
+        if (list[0].type === 'checkbox') return list.filter((c) => c.checked).map((c) => c.value);
+        return list[0].value.trim();
+    };
+
+    const validate = (w) => {
+        const error = rules[w.dataset.name](valueOf(w));
+        w.querySelector('.error').textContent = error;
+        controls(w).forEach((c) => {
+            c.classList.toggle('invalid', Boolean(error));
+            c.setAttribute('aria-invalid', String(Boolean(error)));
+        });
+        return !error;
+    };
+
+    wraps.forEach((w) => {
+        const isGroup = controls(w)[0].type === 'checkbox';
+        w.addEventListener(isGroup ? 'change' : 'focusout', () => validate(w));
+        w.addEventListener('input', () => {
+            if (controls(w)[0].classList.contains('invalid')) validate(w);
+            const counter = w.querySelector('.counter');
+            if (counter) counter.textContent = `${controls(w)[0].value.length} / ${controls(w)[0].maxLength}`;
+        });
+    });
+
+    form.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        status.className = 'form-status';
+        const results = wraps.map(validate);
+        const bad = wraps[results.indexOf(false)];
+        if (bad) {
+            controls(bad)[0].focus();
+            status.textContent = 'Please fix the highlighted fields.';
+            status.classList.add('error-text');
+            return;
+        }
+
+        submit.disabled = true;
+        submit.textContent = 'Sending…';
+        status.textContent = '';
+        try {
+            const data = Object.fromEntries(wraps.map((w) => [w.dataset.name, valueOf(w)]));
+            const response = await sendForm(data);
+            if (!response.ok) throw new Error('Request failed');
+            form.reset();
+            form.querySelectorAll('.counter').forEach((c) => { c.textContent = `0 / ${c.previousElementSibling.maxLength}`; });
+            onSuccess();
+            status.textContent = successText(data);
+            status.classList.add('success-text');
+        } catch (e) {
+            status.textContent = 'Sorry, something went wrong. Please try again.';
+            status.classList.add('error-text');
+        } finally {
+            submit.disabled = false;
+            submit.textContent = label;
+        }
+    });
+}
+
+const commonRules = {
+    name: (v) => (v.length < 2 ? 'Please enter your full name.' : /^[\p{L}\s'.-]+$/u.test(v) ? '' : 'Name contains invalid characters.'),
+    email: (v) => (!v ? 'Please enter your email address.' : /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v) ? '' : 'Please enter a valid email address.'),
+    phone: (v) => (!v || /^\+?[\d\s()-]{7,15}$/.test(v) ? '' : 'Please enter a valid phone number.'),
+    message: (v) => (v.length < 10 ? 'Message must be at least 10 characters.' : '')
+};
+
+// Contact page: general queries form.
+function initQueryForm() {
+    const form = document.getElementById('query-form');
+    if (!form) return;
+    setupForm(form, {
+        ...commonRules,
+        topic: (v) => (v ? '' : 'Please choose a topic.')
+    }, {
+        successText: (d) => `Thank you, ${d.name.split(' ')[0]}! Your message has been sent. We'll be in touch soon.`
+    });
+}
+
+// Enquiry page: consultation form, pre-filled with services chosen in the quote builder.
+function initEnquiryForm() {
+    const form = document.getElementById('enquiry-form');
+    if (!form) return;
+
+    const date = form.querySelector('input[type="date"]');
+    const today = new Date();
+    date.min = new Date(today.getTime() - today.getTimezoneOffset() * 60000).toISOString().slice(0, 10);
+
+    setupForm(form, {
+        ...commonRules,
+        hair: (v) => (v ? '' : 'Please choose your hair type.'),
+        services: (v) => (v.length ? '' : 'Please select at least one service.'),
+        date: (v) => {
+            if (!v) return 'Please choose a preferred date.';
+            const [y, m, d] = v.split('-').map(Number);
+            const chosen = new Date(y, m - 1, d);
+            const start = new Date(today.getFullYear(), today.getMonth(), today.getDate());
+            if (chosen < start) return 'Please choose a date in the future.';
+            return [0, 1].includes(chosen.getDay()) ? 'We are open Tuesday to Saturday only.' : '';
+        }
+    }, {
+        successText: (d) => `Thank you, ${d.name.split(' ')[0]}! We've received your enquiry and will contact you to confirm your consultation.`,
+        onSuccess: () => form.querySelector('.prefill-note')?.remove()
+    });
+
+    let saved = [];
+    try { saved = JSON.parse(sessionStorage.getItem('vs-quote')) || []; } catch (e) { saved = []; }
+    sessionStorage.removeItem('vs-quote');
+    const boxes = [...form.querySelectorAll('input[name="services"]')].filter((b) => saved.includes(b.value));
+    if (boxes.length) {
+        boxes.forEach((b) => { b.checked = true; });
+        form.querySelector('.field[data-name="services"] legend').after(
+            el('small', { class: 'prefill-note', text: 'Pre-selected from your quote.' })
+        );
+    }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     initProducts();
     initServices();
     initStylists();
+    initQueryForm();
+    initEnquiryForm();
 });

@@ -40,9 +40,45 @@
         </section>
 
         <section class="direct-contact">
-            <h2>General Contact Details</h2>
-            <p><strong>Email:</strong> bookings@velvetandstrand.co.za</p>
-            <p><strong>Notice:</strong> Velvet & Strand is an exclusive, women-only salon space.</p>
+            <h2>2. General Queries</h2>
+            <p>Have a question that isn't about a booking? Send us a message and we'll reply as soon as we can.</p>
+
+            <form id="query-form" class="query-form" novalidate>
+                <div class="field" data-name="name">
+                    <label for="q-name">Full name</label>
+                    <input type="text" id="q-name" name="name" autocomplete="name" required minlength="2" aria-describedby="q-name-error">
+                    <span class="error" id="q-name-error" role="alert"></span>
+                </div>
+                <div class="field" data-name="email">
+                    <label for="q-email">Email address</label>
+                    <input type="email" id="q-email" name="email" autocomplete="email" required aria-describedby="q-email-error">
+                    <span class="error" id="q-email-error" role="alert"></span>
+                </div>
+                <div class="field" data-name="phone">
+                    <label for="q-phone">Phone number <small>(optional)</small></label>
+                    <input type="tel" id="q-phone" name="phone" autocomplete="tel" aria-describedby="q-phone-error">
+                    <span class="error" id="q-phone-error" role="alert"></span>
+                </div>
+                <div class="field" data-name="topic">
+                    <label for="q-topic">Topic</label>
+                    <select id="q-topic" name="topic" required aria-describedby="q-topic-error">
+                        <option value="">Choose a topic…</option>
+                        <option>Services</option>
+                        <option>Products</option>
+                        <option>Pricing</option>
+                        <option>Other</option>
+                    </select>
+                    <span class="error" id="q-topic-error" role="alert"></span>
+                </div>
+                <div class="field" data-name="message">
+                    <label for="q-message">Message</label>
+                    <textarea id="q-message" name="message" rows="5" required minlength="10" maxlength="500" aria-describedby="q-message-error"></textarea>
+                    <small class="counter">0 / 500</small>
+                    <span class="error" id="q-message-error" role="alert"></span>
+                </div>
+                <button type="submit" class="btn add-btn">Send message</button>
+                <p class="form-status" role="status" aria-live="polite"></p>
+            </form>
         </section>
     </main>
 

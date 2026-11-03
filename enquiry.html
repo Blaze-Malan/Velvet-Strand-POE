@@ -29,7 +29,56 @@
         <h1>Service & Texture Consultation Enquiry</h1>
         <p>Have questions about which treatment suits your hair type? Send us a message below.</p>
 
-        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfJSbQK7yTNLR5lM7ZMEg2n3TsOa_CYZ9KDmFtLd99cVtjP7w/viewform?embedded=true" width="640" height="1110" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+        <form id="enquiry-form" class="query-form" novalidate>
+            <div class="field" data-name="name">
+                <label for="e-name">Full name</label>
+                <input type="text" id="e-name" autocomplete="name" required>
+                <span class="error" role="alert"></span>
+            </div>
+            <div class="field" data-name="email">
+                <label for="e-email">Email address</label>
+                <input type="email" id="e-email" autocomplete="email" required>
+                <span class="error" role="alert"></span>
+            </div>
+            <div class="field" data-name="phone">
+                <label for="e-phone">Phone number <small>(optional)</small></label>
+                <input type="tel" id="e-phone" autocomplete="tel">
+                <span class="error" role="alert"></span>
+            </div>
+            <div class="field" data-name="hair">
+                <label for="e-hair">Hair type</label>
+                <select id="e-hair" required>
+                    <option value="">Choose your hair type…</option>
+                    <option>Type 1 – Straight</option>
+                    <option>Type 2 – Wavy</option>
+                    <option>Type 3 – Curly</option>
+                    <option>Type 4 – Coily</option>
+                    <option>Not sure yet</option>
+                </select>
+                <span class="error" role="alert"></span>
+            </div>
+            <fieldset class="field" data-name="services">
+                <legend>Services you're interested in</legend>
+                <label class="check"><input type="checkbox" name="services" value="Signature Silk Press &amp; Steam"> Signature Silk Press &amp; Steam</label>
+                <label class="check"><input type="checkbox" name="services" value="Custom Texture Cut &amp; Style"> Custom Texture Cut &amp; Style</label>
+                <label class="check"><input type="checkbox" name="services" value="Custom Balayage &amp; Gloss"> Custom Balayage &amp; Gloss</label>
+                <label class="check"><input type="checkbox" name="services" value="Not sure yet"> Not sure yet, I'd like advice</label>
+                <span class="error" role="alert"></span>
+            </fieldset>
+            <div class="field" data-name="date">
+                <label for="e-date">Preferred date <small>(Tue – Sat)</small></label>
+                <input type="date" id="e-date" required>
+                <span class="error" role="alert"></span>
+            </div>
+            <div class="field" data-name="message">
+                <label for="e-message">Tell us about your hair</label>
+                <textarea id="e-message" rows="5" required maxlength="500"></textarea>
+                <small class="counter">0 / 500</small>
+                <span class="error" role="alert"></span>
+            </div>
+            <button type="submit" class="btn add-btn">Send enquiry</button>
+            <p class="form-status" role="status" aria-live="polite"></p>
+        </form>
     </main>
 
     <footer>
