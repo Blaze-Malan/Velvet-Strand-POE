@@ -140,14 +140,16 @@ In short, we only added features where the site had content that needed them. Ad
 * The Independent Institute of Education, 2026. Web Development [WEDE5020]. nt. [online via internal VLE] The Independent Institute of Education. Available at:< https://advtechonline.sharepoint.com/sites/TertiaryStudents/SitePages/Student-Materials.aspx?isSPOFile=1 > [Accessed Date 24 August 2026].
 * Show Salon (2026) Show Online. Available at: https://www.showsalon.co.za/ [Accessed: 24 August 2026].
 * Markin, I. (2025) Defining website goals and objectives: Key steps and examples, Gapsy Studio. Available at: https://gapsystudio.com/blog/defining-website-goals-and-objectives/ [Accessed: 24 August 2026].
-* Google Gemini (2026) *Gemini* (Version Large Language Model) [AI tool]. Available at: https://gemini.google.com [Accessed: 24 August 2026].
+* Google Gemini (2026) *Gemini* (Version Large Language Model) [AI tool]. Available at: https://gemini.google.com [Accessed: 02 November 2026].
 
 ## Video References
 
 * Academind (2018) *Visual Studio Code Tutorial for Beginners - Introduction* [Video]. YouTube. Available at: https://www.youtube.com/watch?v=VqCgcpAypFQ [Accessed: 23 August 2026].
 * Adolphe, R. / Visual Studio Code (2026) *Learn Visual Studio Code in 15 minutes: 2026 Official Beginner Tutorial* [Video]. YouTube. Available at: https://www.youtube.com/watch?v=f8_uF_IDV50 [Accessed: 23 August 2026].
+* Bro Code (2022-2024) *JavaScript tutorial for beginners* [Video Playlist]. Youtube. Available at: https://youtube.com/playlist?list=PLZPZq0r_RZOO1zkgO4bIdfuLpizCeHYKv&si=_kF0JnDR0yaLbOeE [Accessed: 02 November 2026].
 * McFadyean, M. (2022) *VS Code Quick Start* [Video]. YouTube. Available at: https://www.youtube.com/watch?v=LCA3E86g29w [Accessed: 23 August 2026].
 * Mikey No-Code (2026) *Visual Studio Code Tutorial for Beginners 2026: How to Use VS Code* [Video]. YouTube. Available at: https://www.youtube.com/watch?v=bj6QSx22zXs [Accessed: 25 August 2026].
+* Nerd's lesson (2021) *Javascript tutorial for beginners Full course|javascript Full crash course for Beginners* [video]. YouTube Available at: https://youtu.be/PXvI0ln6Nws [Accessed: 2 November 2026].
 * Powell, K. (2023) *How to get started with VS Code* [Video]. YouTube. Available at: https://www.youtube.com/watch?v=EUJlVYggR1Y [Accessed: 23 August 2026].
 * Rohowsky, M. (2023) *Using Git & GitHub in VSCode: Stage, Commit, and Push* [Video]. YouTube. Available at: https://www.youtube.com/watch?v=z5jZ9lrSpqk [Accessed: 25 August 2026].
 * TheCoderCoder (2025) *VS Code for Absolute Beginners* [Video]. YouTube. Available at: https://youtu.be/lWEKiak0WVU [Accessed: 23 August 2026].
