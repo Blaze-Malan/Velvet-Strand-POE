@@ -5,25 +5,25 @@ document.addEventListener('DOMContentLoaded', () => {
     const header = document.querySelector('header');
     const current = location.pathname.split('/').pop() || 'index.html';
 
-    // Navigation: highlights the link for the page the visitor is on.
+    // Highlights the link for the current page.
     document.querySelectorAll('nav a').forEach((link) => {
         if (link.getAttribute('href') === current) {
             link.setAttribute('aria-current', 'page');
         }
     });
 
-    // Header: adds a shadow and a smaller size once the page is scrolled.
+    // Adds a shadow and a smaller size once the page is scrolled.
     const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 10);
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
 
-    // Scroll reveal: headings, text, cards and forms fade in as they scroll into view.
+    // Everything fades in as they scroll into view.
     const targets = document.querySelectorAll(
         'main section > h1, main section > h2, main section > p, main article, main form, main > h1, main > h2, main > p'
     );
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    // Skip the animation for visitors who prefer reduced motion or on old browsers.
+    // Skip the animation for some visitors
     if (reduceMotion || !('IntersectionObserver' in window)) {
         return;
     }
@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }, { threshold: 0.15 });
 
-    // Small staggered delay so items in a group appear one after another.
+    // Delay so items in a group appear one after another.
     targets.forEach((el, i) => {
         el.classList.add('reveal');
         el.style.transitionDelay = `${(i % 4) * 90}ms`;
@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-// Helper: builds an element with attributes/text/children (no innerHTML used).
+// Builder helper function.
 function el(tag, props = {}, ...children) {
     const node = document.createElement(tag);
     Object.entries(props).forEach(([key, value]) => {
@@ -66,7 +66,7 @@ function formatTime(minutes) {
     return [h ? `${h} hr` : '', m ? `${m} mins` : ''].filter(Boolean).join(' ') || '0 mins';
 }
 
-// Reusable modal built on the native <dialog> element (focus trap, Esc to close).
+// Reusable modal for the about and services pages
 let modal;
 function openModal({ title, image, content = [], actions = [] }) {
     if (!modal) {
@@ -92,7 +92,7 @@ function openModal({ title, image, content = [], actions = [] }) {
     modal.dialog.showModal();
 }
 
-// About page: stylist cards open a profile modal. Placeholder bios, edit as needed.
+// About page stylist cards
 const stylistBios = {
     'Elena Rostova': 'Elena has spent over a decade perfecting colour and precision cutting for straight and wavy hair. She is known for seamless blondes, rich glosses and volume-boosting cuts.',
     'Amina Diallo': 'Amina specialises in curl-by-curl shaping, protective styling and moisture-first care for curly and coily hair. She builds routines that keep natural texture healthy at home.'
@@ -117,7 +117,7 @@ function initStylists() {
     });
 }
 
-// Reads name, price (and duration in minutes) from a product/service card.
+// Reads name, price, duration from a product/service card.
 function readCard(card) {
     const text = card.textContent;
     const price = Number((text.match(/R\s*([\d,]+)/) || [0, '0'])[1].replace(/,/g, ''));
@@ -126,7 +126,7 @@ function readCard(card) {
     return { name: card.querySelector('h2').textContent.trim(), price, minutes: hrs * 60 + mins };
 }
 
-// Adds a search box and sort menu that filter/reorder the cards live.
+// Search box and sort menu.
 function addToolbar(grid, cards, extraSorts = []) {
     const original = [...cards];
     const search = el('input', { type: 'search', placeholder: 'Search…', 'aria-label': 'Search' });
@@ -166,7 +166,7 @@ function addToolbar(grid, cards, extraSorts = []) {
     grid.before(el('div', { class: 'toolbar' }, search, sort), empty, status);
 }
 
-// Floating panel used by both the basket and the quote builder.
+// Panel used by both the basket and the quote builder.
 function createPanel(title, id) {
     const list = el('ul', { class: 'panel-list' });
     const total = el('p', { class: 'panel-total' });
@@ -186,7 +186,7 @@ function createPanel(title, id) {
     return { panel, body, list, total, clear, count };
 }
 
-// Products page: search, sort and a basket saved in localStorage.
+// Products page search, sort and basket.
 function initProducts() {
     const grid = document.querySelector('.product-grid');
     if (!grid) return;
@@ -243,7 +243,7 @@ function initProducts() {
     render();
 }
 
-// Services page: search, sort and a quote builder with running price and time.
+// Services page search, sort and quote builder.
 function initServices() {
     const grid = document.querySelector('.service-list');
     if (!grid) return;
@@ -322,10 +322,9 @@ function initServices() {
     render();
 }
 
-// Shared form handling: each `.field[data-name]` wrapper holds its control(s) and an `.error` span.
-// Validates on blur/change, shows errors, then submits asynchronously (simulated, no backend).
+// Shared form and error handling(AI assisted)(Google Gemini[Accessed: November 2026])
 function sendForm(data) {
-    // Stand-in for fetch('/api/...', { method: 'POST', body: JSON.stringify(data) }).
+    
     return new Promise((resolve) => setTimeout(() => resolve({ ok: true, data }), 1200));
 }
 
@@ -403,7 +402,7 @@ const commonRules = {
     message: (v) => (v.length < 10 ? 'Message must be at least 10 characters.' : '')
 };
 
-// Contact page: general queries form.
+// Contact page general queries form.
 function initQueryForm() {
     const form = document.getElementById('query-form');
     if (!form) return;
@@ -415,7 +414,7 @@ function initQueryForm() {
     });
 }
 
-// Enquiry page: consultation form, pre-filled with services chosen in the quote builder.
+// Enquiry page consultation form.
 function initEnquiryForm() {
     const form = document.getElementById('enquiry-form');
     if (!form) return;

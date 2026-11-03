@@ -76,6 +76,41 @@ This website serves as a modern digital platform designed to showcase the salon'
 ### Version 1.0.0 (Part 2 Submission)
 * No changes were made.
 
+### Version 2.0.0 (Part 3 Submission)
+**Animations and transitions (CSS + JavaScript)**
+* Added page fade-in on load and a gentle zoom-in on the home page hero banner.
+* Added scroll-reveal animations using `IntersectionObserver`, so headings, text, cards and forms fade in as they scroll into view.
+* Added a sticky header that shrinks and gains a shadow on scroll, and a logo that tilts on hover.
+* Added animated navigation underlines on hover, with the current page highlighted automatically.
+* Styled the `.btn` buttons with hover lift and shadow effects, and added hover effects to cards and images.
+* Added focus glow on form inputs and a modal fade-in.
+* Respected `prefers-reduced-motion`: all animations are switched off for visitors who request it.
+
+**Advanced DOM manipulation (`_javascript/script.js`)**
+* **Products page:** added live search, sort (price low to high, price high to low, name A to Z), a "No matches found" message, and an "Add to basket" feature with a floating basket (add/remove quantities, running total, "Clear all"), saved with `localStorage`.
+* **Services page:** added live search, sort (including shortest duration), an "Add to quote" checkbox on each service, and a floating quote panel showing total price and total time.
+* Added a reusable modal built on the native `<dialog>` element, with Esc and backdrop-click to close, focus returned to the opener, and page scroll locked while open.
+* **About page:** added "View profile" buttons that open a stylist profile modal.
+* **Services page:** added a "Review quote" modal that summarises the quote and links to the enquiry form.
+* Added screen-reader announcements for search results.
+
+**Forms and validation**
+* **Contact page:** removed the General Contact Details section and replaced it with "2. General Queries", a custom form with JavaScript validation (name, email, optional phone, topic, message with live character counter).
+* **Enquiry page:** replaced the embedded Google Form with a custom consultation form (name, email, optional phone, hair type, services, preferred date, message). The date must be in the future and fall on a Tuesday to Saturday.
+* Services selected in the quote builder are carried over and pre-selected on the enquiry form.
+* Forms submit asynchronously (AJAX-style) with a "Sending…" state and success or error messages. With no backend, the send is simulated, and `sendForm()` is the single place to connect a real request.
+* Both forms share one validation and submit function.
+
+**SEO and structure**
+* Added a unique `<meta name="description">` to each of the 6 HTML pages.
+* Linked `_javascript/script.js` on every page.
+* Updated all image paths after the folders were renamed to `images/`, `images/gallery/` and `images/products/`.
+* Added even spacing between cards on the Services and Products pages.
+* Kept the embedded Google Map on the Contact page.
+
+**Documentation**
+* Added explanatory comments throughout `script.js`.
+
 ---
 ### Proof Of Cross Platform Usability
 
