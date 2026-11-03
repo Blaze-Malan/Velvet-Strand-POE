@@ -55,7 +55,13 @@ This website serves as a modern digital platform designed to showcase the salon'
 * **Focus Area:** Requirements gathering, sitemap creation, directory structure creation, and initial semantic HTML build out for all core pages.
 ## Part 2 Details
 * **Thoughts and review:** I am unsure of what changes could have been made for part 2 of the POE as most of the requirements had already been met in Part 1, stated in the POE it would be to your benefit to prioritize content and keep it simple, I feel adding more css to what was already implemented would do more harm than good and I would not like the same issue of doing more than what is required to effect my project in part 3 as well. As pertaining to my score for my README I am unsure of what improvements can be made to improve my score.
-* **Status:** Complete (*Part 3 will follow in future project submissions/edits*).
+## Part 3 Details
+* **Thoughts and review:** Nearly everything required for submission 3 has been documented much more extensively in the changelog as compared to previous submissions allowing for a looser use of this detail section. I will instead use this part of the README to list what was not added.
+* Lightbox - The site has only about a dozen photos and no real gallery of work, so there was little need for this feature.
+* Accordion - The nav is six flat links with no sub-pages, so there's nothing to expand, and an accordion would add clicks.
+* Tabs - Each page is short, with one clear topic, so splitting it into tabs would hide content without saving space. Separate pages already do that job.
+
+In short, we only added features where the site had content that needed them. Adding the others would not have been much or any improvement at all.
 
 ---
 
