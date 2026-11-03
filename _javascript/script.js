@@ -60,6 +60,63 @@ function el(tag, props = {}, ...children) {
 
 const rand = (n) => 'R ' + n.toLocaleString('en-US');
 
+function formatTime(minutes) {
+    const h = Math.floor(minutes / 60);
+    const m = minutes % 60;
+    return [h ? `${h} hr` : '', m ? `${m} mins` : ''].filter(Boolean).join(' ') || '0 mins';
+}
+
+// Reusable modal built on the native <dialog> element (focus trap, Esc to close).
+let modal;
+function openModal({ title, image, content = [], actions = [] }) {
+    if (!modal) {
+        const close = el('button', { type: 'button', class: 'modal-close', 'aria-label': 'Close', text: '×' });
+        modal = { dialog: el('dialog', { class: 'modal', 'aria-labelledby': 'modal-title' }), close, opener: null };
+        modal.dialog.addEventListener('click', (e) => {
+            if (e.target === modal.dialog) modal.dialog.close();
+        });
+        modal.dialog.addEventListener('close', () => {
+            document.body.classList.remove('modal-open');
+            if (modal.opener && document.contains(modal.opener)) modal.opener.focus();
+        });
+        close.addEventListener('click', () => modal.dialog.close());
+        document.body.append(modal.dialog);
+    }
+    modal.opener = document.activeElement;
+    const body = el('div', { class: 'modal-body' });
+    if (image) body.append(el('img', { src: image.src, alt: image.alt }));
+    body.append(el('h2', { id: 'modal-title', text: title }), ...content);
+    if (actions.length) body.append(el('div', { class: 'modal-actions' }, ...actions));
+    modal.dialog.replaceChildren(modal.close, body);
+    document.body.classList.add('modal-open');
+    modal.dialog.showModal();
+}
+
+// About page: stylist cards open a profile modal. Placeholder bios, edit as needed.
+const stylistBios = {
+    'Elena Rostova': 'Elena has spent over a decade perfecting colour and precision cutting for straight and wavy hair. She is known for seamless blondes, rich glosses and volume-boosting cuts.',
+    'Amina Diallo': 'Amina specialises in curl-by-curl shaping, protective styling and moisture-first care for curly and coily hair. She builds routines that keep natural texture healthy at home.'
+};
+
+function initStylists() {
+    document.querySelectorAll('.about-section article').forEach((card) => {
+        const name = card.querySelector('h3')?.textContent.trim();
+        if (!name || !stylistBios[name]) return;
+        const img = card.querySelector('img');
+        const button = el('button', { type: 'button', class: 'btn add-btn', text: 'View profile' });
+        button.addEventListener('click', () => openModal({
+            title: name,
+            image: { src: img.getAttribute('src'), alt: img.alt },
+            content: [
+                el('p', { class: 'modal-role', text: card.querySelector('p').textContent }),
+                el('p', { text: stylistBios[name] })
+            ],
+            actions: [el('a', { class: 'btn', href: 'enquiry.html', text: 'Book a consultation' })]
+        }));
+        card.append(button);
+    });
+}
+
 // Reads name, price (and duration in minutes) from a product/service card.
 function readCard(card) {
     const text = card.textContent;
@@ -126,7 +183,7 @@ function createPanel(title, id) {
     });
     const panel = el('aside', { class: 'panel', id }, toggle, body);
     document.body.append(panel);
-    return { panel, list, total, clear, count };
+    return { panel, body, list, total, clear, count };
 }
 
 // Products page: search, sort and a basket saved in localStorage.
@@ -195,6 +252,30 @@ function initServices() {
 
     const ui = createPanel('Your quote', 'quote');
     const selected = new Map();
+    const review = el('button', { type: 'button', class: 'btn add-btn', text: 'Review quote' });
+    review.addEventListener('click', () => {
+        if (!selected.size) return;
+        let price = 0;
+        let minutes = 0;
+        const rows = [...selected.values()].map((s) => {
+            price += s.price;
+            minutes += s.minutes;
+            return el('li', {}, el('span', { text: s.name }), el('span', { text: rand(s.price) }));
+        });
+        openModal({
+            title: 'Your quote',
+            content: [
+                el('ul', { class: 'panel-list' }, ...rows),
+                el('p', { class: 'panel-total', text: `Total: ${rand(price)} | Time: ${formatTime(minutes)}` }),
+                el('p', { text: 'Send us an enquiry to turn this quote into a booking.' })
+            ],
+            actions: [
+                el('a', { class: 'btn', href: 'enquiry.html', text: 'Go to enquiry' }),
+                el('button', { type: 'button', class: 'btn-link', text: 'Keep browsing', onclick: () => modal.dialog.close() })
+            ]
+        });
+    });
+    ui.body.append(review);
 
     const render = () => {
         ui.list.replaceChildren();
@@ -206,9 +287,7 @@ function initServices() {
             ui.list.append(el('li', {}, el('span', { text: name }), el('span', { text: rand(s.price) })));
         });
         if (!selected.size) ui.list.append(el('li', { text: 'Select services to build a quote.' }));
-        const h = Math.floor(minutes / 60);
-        const m = minutes % 60;
-        ui.total.textContent = `Total: ${rand(price)} | Time: ${h ? h + ' hr ' : ''}${m ? m + ' mins' : h ? '' : '0 mins'}`.trim();
+        ui.total.textContent = `Total: ${rand(price)} | Time: ${formatTime(minutes)}`;
         ui.count.textContent = selected.size;
         ui.count.classList.remove('bump');
         void ui.count.offsetWidth;
@@ -241,4 +320,5 @@ function initServices() {
 document.addEventListener('DOMContentLoaded', () => {
     initProducts();
     initServices();
+    initStylists();
 });

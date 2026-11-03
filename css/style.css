@@ -435,6 +435,76 @@ button.add-btn {
     cursor: pointer;
 }
 
+.modal {
+    width: min(480px, calc(100% - 2rem));
+    padding: 0;
+    border: 0;
+    border-radius: 12px;
+    color: inherit;
+    background: #faf7f4;
+    box-shadow: 0 20px 50px -10px rgba(47, 37, 48, 0.6);
+}
+
+.modal[open] {
+    animation: modal-in 0.3s ease;
+}
+
+.modal::backdrop {
+    background: rgba(47, 37, 48, 0.6);
+}
+
+@keyframes modal-in {
+    from { opacity: 0; transform: translateY(16px) scale(0.97); }
+    to { opacity: 1; transform: none; }
+}
+
+body.modal-open {
+    overflow: hidden;
+}
+
+.modal-body {
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.modal-body img {
+    display: block;
+    width: 160px;
+    height: 160px;
+    margin: 0 auto 1rem;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.modal-role {
+    font-style: italic;
+}
+
+.modal-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.modal-close {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.75rem;
+    border: 0;
+    background: none;
+    font-size: 1.8rem;
+    line-height: 1;
+    color: inherit;
+    cursor: pointer;
+}
+
+.modal .panel-list li {
+    border-bottom: 1px solid #e6dce2;
+}
+
 @media (prefers-reduced-motion: reduce) {
     *,
     *::before,
