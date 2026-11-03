@@ -102,6 +102,7 @@ This website serves as a modern digital platform designed to showcase the salon'
 * Both forms share one validation and submit function.
 
 **SEO and structure**
+* Added `robots.txt` and `sitemap.xml`
 * Added a unique `<meta name="description">` to each of the 6 HTML pages.
 * Linked `_javascript/script.js` on every page.
 * Updated all image paths after the folders were renamed to `images/`, `images/gallery/` and `images/products/`.
